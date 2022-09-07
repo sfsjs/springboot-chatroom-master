@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lts?characterEncoding=UTF-8&serverTimezone=UTC&useUnicode=true
+    username: root
+    password: root
+mybatis-plus:
+  type-aliases-package: com.xuwei.chatroom.entity
+  mapper-locations: classpath:mapper/*.xml

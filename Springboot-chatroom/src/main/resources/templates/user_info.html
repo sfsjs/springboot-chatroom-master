@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <link rel="stylesheet" th:href="@{css/semantic.css}">
+    <link rel="stylesheet" th:href="@{css/list_custom.css}">
+    <link rel="stylesheet" th:href="@{css/common.css}">
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}">
+</head>
+<body>
+<div class="ui grid divided segment container">
+    <div class="five wide column">
+        <h4 class="ui inverted header">
+            <a th:href="@{/main}" style="color:#ffffff">首 页</a>
+            <a th:href="@{/user/logout}" style="color:#ffffff">登录页</a>
+        </h4>
+        <h1 class="ui inverted center aligned header" style="font-size: 28px;margin-top:55px">
+            <p class="sub header">
+                修改个人信息
+            </p>
+        </h1>
+
+    </div>
+
+    <div class="eleven wide column">
+        <h4 class="ui inverted right aligned header">
+            <a th:href="@{/register}" style="color:#ff695e;">前往注册</a>
+        </h4>
+        <form class="ui form error" method="post">
+            <input type="hidden" id="id" name="id" th:value="${user.id}">
+            <div class="field">
+                <label for="username">用户名</label>
+                <input autofocus="" id="username" name="username"
+                       type="text" th:value="${user.username}" maxlength="50"/>
+            </div>
+
+            <div class="field">
+                <label for="phone">手机号</label>
+                <input id="phone" name="phone" type="text" th:value="${user.phone}" maxlength="11"/>
+            </div>
+
+            <button class="ui inverted red circular right floated button" type="button">修改</button>
+        </form>
+    </div>
+</div>
+</body>
+<script th:src="@{js/jquery.js}" type="text/javascript"></script>
+<script th:src="@{js/bootstrap.bundle.js}" type="text/javascript"></script>
+<script th:src="@{js/common.js}" type="text/javascript"></script>
+<script th:src="@{js/user_info.js}" type="text/javascript"></script>
+</html>

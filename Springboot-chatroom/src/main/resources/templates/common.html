@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<table class="online-content" width="100%" border="0" cellpadding="0" cellspacing="0" th:fragment="online">
+    <tr>
+        <td height="32" align="center" class="word_orange">欢迎来到网络聊天室！</td>
+    </tr>
+    <tr>
+        <td height="23" align="center"><a href="#" onclick="set('所有人')">所有人</a></td>
+    </tr>
+    <tr th:each="entry:${#httpSession.getAttribute('userMap')}"
+        th:if="${#httpSession.getAttribute('USER')}">
+        <td align="center" height="23">
+            <a href="#" th:onclick="set([[${entry.key}]])">[[${entry.key}]]</a>
+        </td>
+    </tr>
+    <tr>
+        <td height="30" align="center">
+            当前在线[<span style="color: #FF6600;" th:text="${#httpSession.getAttribute('onlineNum')}"></span>]人
+        </td>
+    </tr>
+</table>
+</html>

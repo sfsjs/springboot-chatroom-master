@@ -1,0 +1,83 @@
+#userInfo {
+    z-index: 1000;
+    position: absolute;
+    left: 10%;
+    top: 10%
+}
+
+.chat-box {
+    margin: 0 auto;
+    width: 778px;
+}
+
+.chart-header {
+    width: 100%;
+    height: 150px;
+    background: #ff695e url(../images/chat.png);
+}
+
+.chart-body {
+    width: 778px;
+    height: 276px;
+    border: 0;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.chart-body td {
+    padding: 0;
+}
+
+.online {
+    width: 165px;
+    vertical-align: top;
+    background-color: #f6fded;
+    height: 500px;
+}
+
+.content-box {
+    width: 613px;
+    height: 500px;
+    vertical-align: top;
+    background: #FFFFFF url(../images/main_bj.jpg);
+    padding: 5px;
+}
+
+#content {
+    height: 94%;
+    overflow: scroll;
+}
+
+input[name=content] {
+    width: 500px;
+}
+
+input[name=to] {
+    width: 200px;
+}
+
+/* 定义滚动条样式 */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(240, 240, 240, 1);
+}
+
+.chart-footer {
+    width: 778px;
+    height: 95px;
+    border: 0;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: #D6D3CE url(../images/red.png);
+}
+
+.chart-footer td {
+    padding: 0;
+}

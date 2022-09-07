@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <link rel="stylesheet" th:href="@{css/semantic.css}"/>
+    <link rel="stylesheet" th:href="@{css/list_custom.css}"/>
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{css/common.css}">
+</head>
+<body>
+<div class="ui grid divided segment container">
+
+    <div class="five wide  column">
+        <h4 class="ui inverted header">
+            <a th:href="@{/main}" style="color:#ffffff">首 页</a>
+        </h4>
+        <h1 class="ui inverted center aligned header" style="font-size: 28px;margin-top:55px">
+            <p class="sub header">
+                Welcome to
+            </p>
+            聊天室
+        </h1>
+    </div>
+
+    <div class="eleven wide column">
+        <h4 class="ui inverted right aligned header">
+            <a th:href="@{/toLogin}" style="color:#ff695e;">前往登录</a>
+        </h4>
+        <form class="ui form error" method="post" action="">
+            <input type="hidden" name="method" value="register">
+            <div class="field">
+                <label for="username">用户名</label>
+                <input autofocus="" id="username" name="username" type="text" maxlength="20"/>
+            </div>
+            <div class="field">
+                <label for="password">密码</label>
+                <input id="password" name="password" maxlength="20" type="password" placeholder="密码长度为6~20位"/>
+            </div>
+            <div class="field">
+                <label for="re_password">确认密码</label>
+                <input id="re_password" name="re_password" maxlength="20" type="password"/>
+            </div>
+            <button class="ui inverted red circular right floated button" type="button" id="btn">注册</button>
+        </form>
+    </div>
+</div>
+</body>
+<script th:src="@{js/jquery.js}" type="text/javascript"></script>
+<script th:src="@{js/bootstrap.bundle.js}" type="text/javascript"></script>
+<script th:src="@{js/common.js}" type="text/javascript"></script>
+<script>
+    $('#btn').on('click', () => {
+        let $username = $("#username");
+        let $password = $("#password");
+        let $re_password = $('#re_password');
+
+        let username = $username.val().trim();//用户名
+        let password = $password.val().trim();//密码
+        let re_password = $re_password.val().trim();//确认密码
+
+        if (username === "") {
+            showTip($username, "用户名不能为空");
+            return;
+        }
+        if (password === "") {
+            showTip($password, "密码不能为空");
+            return;
+        }
+        if (password.length < 6 || password.length > 20) {
+            showTip($password, "密码长度不符合");
+            return;
+        }
+        if (re_password === "") {
+            showTip($re_password, "确认密码不能为空");
+            return;
+        }
+        if (password !== re_password) {
+            showTip($password, "两次密码不一致");
+            return;
+        }
+
+        $.ajax({
+            url: "/register",
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify(createUser(username, password)),
+            success() {
+                // console.log(res);
+                alert("注册成功");
+                window.location.href = "/toLogin";
+            },
+            error(err) {
+                console.log(err.responseText);
+                showTip($username, err.responseText);
+            }
+        })
+    })
+
+</script>
+</html>

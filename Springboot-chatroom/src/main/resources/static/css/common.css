@@ -1,0 +1,43 @@
+body {
+    background: url(../images/super_blur_back2.jpg);
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+.ui.grid.divided.segment.container {
+    min-height: 400px;
+    width: 600px !important;
+    border: rgba(255, 0, 0, 0);
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.five.wide.column {
+    background-size: cover;
+    background: url(../images/red_regi.jpg) 60% 0;
+}
+
+form {
+    margin-top: 40px;
+}
+
+h1, h3, h4 {
+    font-family: 'Play', sans-serif !important;
+}
+
+.kick-out-user {
+    font-size: 6px;
+    border: none;
+    outline: none;
+    width: 55px;
+    padding: 0;
+    margin: 0;
+    color: #0d6efd;
+    cursor: pointer;
+}
+
